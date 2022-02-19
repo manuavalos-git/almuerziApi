@@ -8,7 +8,5 @@ app.use(bodyParser.json)
 app.use(cors())
 
 mongoose.connect(precess.env.MONGO_URI,{userNewUrlParser: true,useUnifiedTopology: true})
-app.get('*',(require,response)=> {
-    response.send("hola mundo")
-})
+
 module.exports=app
