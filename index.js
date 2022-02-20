@@ -7,7 +7,7 @@ const app=express()
 app.use(bodyParser.json)
 app.use(cors())
 
-app.get('*',(require,response)=> {
+app.get('/',(require,response)=> {
     response.send("hola mundo")
 })
 const MONGO_URI='mongodb+srv://manu:ICXOqZk4DoaZd2lA@cluster0.dvpi2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
