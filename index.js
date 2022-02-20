@@ -12,6 +12,5 @@ app.get('*',(req, res) => {
 })
 const MONGO_URI='mongodb+srv://manu:BpxnU9F7qEtY8GDn@cluster0.dvpi2.mongodb.net/almuerzi-db?retryWrites=true&w=majority'
 mongoose.connect(MONGO_URI,{useNewUrlParser: true , useUnifiedTopology: true})
-module.exports=app
 
-console.log("hola")
+module.exports=app
