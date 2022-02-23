@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-const Schema=mongoose.schema
+const Schema=mongoose.Schema
 
 const Meals=mongoose.model("Meal",new Schema({
     name:String,
@@ -7,3 +7,4 @@ const Meals=mongoose.model("Meal",new Schema({
 }))
 
 module.exports=Meals
+new Schema()

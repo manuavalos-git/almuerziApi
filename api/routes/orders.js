@@ -1,6 +1,6 @@
 const express=require('express')
-const Orders=require('./api/models/Orders')
-const router=app.Router()
+const Orders=require('../models/Orders')
+const router=express.Router()
 
 router.get("/",(req,res)=>{
     Orders.find()
@@ -20,8 +20,8 @@ router.put("/:id",(req,res)=>{
     Orders.findOneAndUpdate(req.param.id,req.body)
     .then(()=> res.sendStatus(204))
 })
-router.delate("/:id",(req,res)=>{
-    Orders.findOneAndDelate(req.param.id)
+router.delete("/:id",(req,res)=>{
+    Orders.findOneAndDelete(req.param.id)
     .exec()
     .then(() => res.sendStatus(204))
 })

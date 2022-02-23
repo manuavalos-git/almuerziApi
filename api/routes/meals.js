@@ -1,6 +1,6 @@
 const express=require('express')
-const Meals=require('./api/models/Meals')
-const router=app.Router()
+const Meals=require('../models/Meals')
+const router=express.Router()
 
 router.get("/",(req,res)=>{
     Meals.find()
@@ -20,8 +20,8 @@ router.put("/:id",(req,res)=>{
     Meals.findOneAndUpdate(req.param.id,req.body)
     .then(()=> res.sendStatus(204))
 })
-router.delate("/:id",(req,res)=>{
-    Meals.findOneAndDelate(req.param.id)
+router.delete("/:id",(req,res)=>{
+    Meals.findOneAndDelete(req.param.id)
     .exec()
     .then(() => res.sendStatus(204))
 })
