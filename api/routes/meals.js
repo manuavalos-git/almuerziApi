@@ -1,7 +1,7 @@
 const express=require('express')
 const Meals=require('../models/Meals')
 const router=express.Router()
-//n
+
 router.get("/",(req,res)=>{
     Meals.find()
     .exec()
