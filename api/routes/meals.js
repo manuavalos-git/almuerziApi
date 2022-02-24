@@ -8,8 +8,7 @@ router.get("/",(req,res)=>{
     .then(x => res.status(200).send(x))
 })
 router.get("/:id",(req,res)=>{
-    Meals.findById(req.param.id)
-    .exec
+    Meals.findById(req.params.id)
     .then(x => res.status(200).send(x))
 })
 router.post("/",(req,res)=>{
@@ -17,12 +16,11 @@ router.post("/",(req,res)=>{
    .then(x => res.status(201).send(x))
 })
 router.put("/:id",(req,res)=>{
-    Meals.findOneAndUpdate(req.param.id,req.body)
-    .then(()=> res.sendStatus(204))
+    Meals.findById(req.params.id).update(req.body)
+    .then(() => res.sendStatus(204))
 })
 router.delete("/:id",(req,res)=>{
-    Meals.findOneAndDelete(req.param.id)
-    .exec()
+    Meals.findById(req.params.id).deleteMany()
     .then(() => res.sendStatus(204))
 })
 
