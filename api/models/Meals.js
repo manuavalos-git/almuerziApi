@@ -7,4 +7,3 @@ const Meals=mongoose.model("Meal",new Schema({
 }))
 
 module.exports=Meals
-new Schema()
