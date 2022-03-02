@@ -3,6 +3,7 @@ const crypto=require('crypto')
 const jwt=require('jsonwebtoken')
 const Users=require('../models/Users')
 const router=express.Router()
+const {isAuthenticated}=require('../auth')
 
 const signToken=(_id)=>{
     return jwt.sign({_id},'mi-secreto',{
@@ -49,8 +50,9 @@ router.post("/login",(req,res)=>{
             res.send('Usario y/o contraseña incorrecta!!')
         })    
     })
-    // Users.create(req.body)
-    // .then(x => res.status(201).send(x))
+ })
+ router.get("/me",isAuthenticated,(req,res)=>{
+     res.send(req.user)
  })
 
 module.exports=router

@@ -1,6 +1,6 @@
 const express=require('express')
 const Orders=require('../models/Orders')
-const isAuthenticated=require('../auth')
+const {hasRoles,isAuthenticated}=require('../auth')
 const router=express.Router()
 
 router.get("/",(req,res)=>{
@@ -12,6 +12,7 @@ router.get("/:id",(req,res)=>{
     Orders.findById(req.params.id)
     .then(x => res.status(200).send(x))
 })
+//hasRoles(['admin','user'])
 router.post("/",isAuthenticated,(req,res)=>{
     const {_id}=req.user
    Orders.create({...req.body,user_id : _id})
