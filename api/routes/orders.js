@@ -13,9 +13,10 @@ router.get("/:id",(req,res)=>{
     .then(x => res.status(200).send(x))
 })
 //hasRoles(['admin','user'])
-router.post("/",isAuthenticated,(req,res)=>{
-   Orders.create({...req.body})
-   .then(x => res.status(201).send(x))
+router.post("/",(req,res)=>{
+//    Orders.create({...req.body})
+    Orders.create(req.body)
+    .then(x => res.status(201).send(x))
 })
 router.put("/:id",isAuthenticated,(req,res)=>{
     Orders.findById(req.params.id).update(req.body)
