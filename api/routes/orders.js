@@ -14,8 +14,8 @@ router.get("/:id",(req,res)=>{
 })
 //hasRoles(['admin','user'])
 router.post("/",isAuthenticated,(req,res)=>{
-//    Orders.create({...req.body})
-    Orders.create(req.body)
+    const {_id}=req.user
+    Orders.create({...req.body,user_id:{_id}})
     .then(x => res.status(201).send(x))
 })
 router.put("/:id",isAuthenticated,(req,res)=>{
