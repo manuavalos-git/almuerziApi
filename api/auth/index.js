@@ -11,7 +11,7 @@ const isAuthenticated=(req,res,next)=>{
         Users.findOne({_id})
         .exec()
         .then(user=> {
-            req.user.email=user.email
+            req.user=user
             next()
         })
     })
