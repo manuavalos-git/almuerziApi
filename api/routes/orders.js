@@ -13,7 +13,7 @@ router.get("/:id",(req,res)=>{
     .then(x => res.status(200).send(x))
 })
 //hasRoles(['admin','user'])
-router.post("/",(req,res)=>{
+router.post("/",isAuthenticated,(req,res)=>{
 //    Orders.create({...req.body})
     Orders.create(req.body)
     .then(x => res.status(201).send(x))
