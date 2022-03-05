@@ -20,12 +20,7 @@ router.post("/register",(req,res)=>{
             .exec()
             .then(user=>{
                 if(user){
-                    if(user.password===encryptedPassword){
-                        return res.send({resp:"Usuario ya existeeee"})
-                    }
-                    else{
-                        // return res.send({resp:"Usuario "})
-                    }
+                    return res.send({resp:"Usuario ya existe"})
                 }
                 Users.create({
                     email,
