@@ -20,7 +20,7 @@ router.post("/register",(req,res)=>{
             .exec()
             .then(user=>{
                 if(user){
-                    return res.send('Usuario ya existe')
+                    return res.send({resp:"Usuario ya existe"})
                 }
                 Users.create({
                     email,
