@@ -27,7 +27,7 @@ router.post("/register",(req,res)=>{
                     password: encryptedPassword,
                     salt:newSalt
                 }).then(()=>{
-                    res.send('Usuario creado con exito')
+                    res.send({resp:'Usuario creado con exito'})
                 })
             })
         })
